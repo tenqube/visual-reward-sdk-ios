@@ -1,0 +1,1 @@
+# Visual Reward iOS SDK

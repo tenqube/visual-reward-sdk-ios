@@ -15,13 +15,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "VisualRewardSDK",
-            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.2.3/VisualRewardSDK-1.2.3.xcframework.zip",
-            checksum: "24f2af356247dc6270968d72e4b17f1fbb9c0f22a24c19f8dfe0018a6983487c"
+            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.2.4/VisualRewardSDK-1.2.4.xcframework.zip",
+            checksum: "176ab816cef8515d3d7217912785725e3359a16600b6580b17fe5c970cb0ff7e"
         ),
         .binaryTarget(
             name: "VisualRewardEzoic",
-            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.2.3/VisualRewardEzoic-1.2.3.xcframework.zip",
-            checksum: "378172e4b71e5aa56d87b88b3e55ce5c46233ae92eb2283d557d57c4dec194ed"
+            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.2.4/VisualRewardEzoic-1.2.4.xcframework.zip",
+            checksum: "e1e43fadd5adfcb949ce04c9fe6911cc442ce550e9307b81a90627365a305b82"
         ),
     ]
 )

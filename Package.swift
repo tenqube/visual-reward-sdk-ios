@@ -1,27 +1,24 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-// dependencies 를 비워 둔다 — Ezoic 런타임은 호스트가 링크해 제공한다(Android compileOnly 대응).
-// 어댑터 프레임워크는 EzoicAdsSDK 심볼을 미해결로 남기고, 호스트의 EzoicAdsSDK 패키지가 채운다.
-// Ezoic 을 쓰지 않는 호스트는 VisualRewardEzoic 프로덕트를 링크하지 않으면 되고,
-// 그 경우 웹의 ezoic* 호출은 조용히 no-op 된다.
+// 프로덕트·바이너리 타깃이 각각 하나다. 광고 어댑터(GAM 호출 + ezoic* JS 계약)는 이 프레임워크에
+// 함께 담겨 있어 호스트가 따로 선언하지 않는다(Kotlin 이 어댑터 클래스를 aar 에 동봉하는 것과 동일).
+//
+// dependencies 를 비워 둔다 — **GMA 는 호스트가 선언해 제공한다.**
+// SDK 는 GMA 를 Obj-C 런타임으로만 호출하므로 이 프레임워크 안에 GMA 코드가 없다. Google 의 SPM 배포가
+// static archive 여서, 여기서 의존성으로 걸면 GMA 가 프레임워크에 흡수되고 AdMob 을 직접 쓰는 호스트에서
+// 클래스가 두 벌이 된다(실측 확인). GMA 가 없으면 광고만 비활성되고 리워드 웹뷰는 정상 동작한다.
 let package = Package(
     name: "VisualRewardSDK",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS(.v13)],
     products: [
         .library(name: "VisualRewardSDK", targets: ["VisualRewardSDK"]),
-        .library(name: "VisualRewardEzoic", targets: ["VisualRewardEzoic"]),
     ],
     targets: [
         .binaryTarget(
             name: "VisualRewardSDK",
-            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.2.4/VisualRewardSDK-1.2.4.xcframework.zip",
-            checksum: "176ab816cef8515d3d7217912785725e3359a16600b6580b17fe5c970cb0ff7e"
-        ),
-        .binaryTarget(
-            name: "VisualRewardEzoic",
-            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.2.4/VisualRewardEzoic-1.2.4.xcframework.zip",
-            checksum: "e1e43fadd5adfcb949ce04c9fe6911cc442ce550e9307b81a90627365a305b82"
+            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.3.0/VisualRewardSDK-1.3.0.xcframework.zip",
+            checksum: "fd4bb1c1084fef036b16cfff62bea53e8ee4925d8ad6acbe88848614f01b1c1f"
         ),
     ]
 )

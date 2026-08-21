@@ -17,8 +17,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "VisualRewardSDK",
-            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.4.8/VisualRewardSDK-1.4.8.xcframework.zip",
-            checksum: "167ac327e3db5467917030280d26cfab5f0cc3c8677e2b251d552bcb47a0f420"
+            url: "https://github.com/tenqube/visual-reward-sdk-ios/releases/download/v1.4.9/VisualRewardSDK-1.4.9.xcframework.zip",
+            checksum: "8524b8e332e1ed02fe0d54a67b5e0d6ca98f4653a3fb939ba21120dd70c30533"
         ),
     ]
 )
